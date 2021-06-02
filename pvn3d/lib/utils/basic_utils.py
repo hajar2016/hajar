@@ -539,10 +539,8 @@ class Basic_Utils():
             return ptsxyz_cu.clone()
 
     def get_kps(
-        self, cls, kp_type='farthest', ds_type='ycb', kp_pth=None
+        self, cls, kp_type='farthest', ds_type='ycb'
     ):
-        if kp_pth:
-            return np.loadtxt(kp_pth)
         if type(cls) is int:
             if ds_type == 'ycb':
                 cls = self.ycb_cls_lst[cls - 1]
@@ -566,9 +564,7 @@ class Basic_Utils():
             self.lm_cls_kps_dict[cls] = kps
         return kps.copy()
 
-    def get_ctr(self, cls, ds_type='ycb', ctr_pth=None):
-        if ctr_pth:
-            return np.loadtxt(ctr_pth)
+    def get_ctr(self, cls, ds_type='ycb'):
         if type(cls) is int:
             if ds_type == 'ycb':
                 cls = self.ycb_cls_lst[cls - 1]
